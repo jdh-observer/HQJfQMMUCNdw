@@ -1,1 +1,14 @@
-jupyterlab-citation-manager==1.0.0
+jupyter-contrib-nbextensions==0.5.1
+numpy==1.21.6
+matplotlib==3.5.1
+pandas
+plotly
+plotly-express
+spacy==3.8.4
+gensim
+scipy
+six
+smart_open
+
+
+

@@ -1,0 +1,10 @@
+pandas
+plotly
+plotly-express
+spacy==3.8.4
+gensim
+numpy
+scipy
+six
+smart_open
+odfpy
