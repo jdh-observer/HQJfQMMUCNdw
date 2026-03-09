@@ -17,7 +17,6 @@ jupyter:
 !pip install -r ohtm_pipeline/requirements.txt
 !pip install -r requirements.txt
 !pip install -e ohtm_pipeline
-
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -195,7 +194,7 @@ The data structure combines interview transcripts, information, and references i
 The following schematic shows the entire structure of the OHTM-file and visualizes the different levels, references, and entries, which are called keys in the following, as it is a dictionary. The keys are divided into two categories: there are fixed keys that are predefined and are created during the import, “key”, and there are variable keys that depend on the file names of the interviews and the names of the archives, \<key\>.
 <!-- #endregion -->
 
-```python editable=true jdh={"module": "object", "object": {"source": ["table 1: label table 1"]}} slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true jdh={"module": "object", "object": {"source": ["table 1: label table 1"]}} slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-strcture-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -210,7 +209,7 @@ metadata = {
 display(Image("./media/ohtm_file data structure.png"))
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-1"] -->
 By creating individual keys that are dependent on the archive name and the interview_id/interview name, similar structures and dependencies can be used in the different entries to relate the results to each other between the entries. 
 <!-- #endregion -->
 
@@ -238,7 +237,9 @@ for sents in ohtm_file["corpus"][archive][interview_id]["sent"]:
 #### Corpus-entry
 
 All imported interview transcripts are stored at the “corpus” level, divided according to the archives. The lowest level is formed by individual sentences, which are saved with relevant information and metadata. My research corpus consists of 991 interviews from seven different archives: the archive “Deutsches Gedächtnis” of the Institut für Geschichte und Biographie der FernUniversität in Hagen (ADG), the archive “Forced Labor 1939-1945” (ZWA) and "Colonia Dignidad. Ein chilenisch-deutsches Oral History-Archiv” (CDG) of the Freie Universität Berlin, the interview collection of the “Werkstatt der Erinnerung of the Forschungsstelle für Zeitgeschichte in Hamburg” (WdE), the contemporary witness archive of the “Dokumentationszentrum Flucht, Vertreibung, Versöhnung” (FVV), the collection ”Erzählte Lebensgeschichte" of the Museum Friedland (MFL) and a collection of the Hannah-Arendt Institut on education in the GDR. (HAI) The English-language interviews, where no translation was available, could not be included in the corpus due to the way topic modeling works, so only the German-language interviews and transcripts are used here. The only selection criterion was the availability and accessibility of the transcripts in CSV/ODT or TXT format.
+<!-- #endregion -->
 
+<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-1"] -->
 | Archive | Interview |
 |----------|----------|
 | ADG   | 681   |
@@ -248,7 +249,6 @@ All imported interview transcripts are stored at the “corpus” level, divided
 | CDG    | 23   |
 | MFL    | 14   |
 | FVV   | 10   |
-
 <!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -256,7 +256,7 @@ The information stored for each sentence includes the "raw" form, as they are fo
 Furthermore, time codes are saved, along with the information regarding the chunk in which the sentence is located. On the level above, a numerical identifier is allocated to each sentence, thereby determining its sequential arrangement within the original document. Based on this, it is possible to create the original text by utilizing the numerical data, whether in its raw or processed state. In this instance, it is important to ascertain whether the interview was included in the original topic model that was trained, or whether it was inferred by a pretrained model. If the interview was anonymized for the OHTM-file, the information is stored at this level that holds the capacity for additional metadata to be added at a later stage. The interview's provenance is the archive, which is situated one level above.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-file-corpus-*"]
 # Bild-Datei noch nicht hochgeladen
 from IPython.display import Image, display
 metadata = {
@@ -278,7 +278,7 @@ display(Image("./media/ohtm_file_corpus.png"))
 The topic word distribution of the individual topics is saved under “words”. In theory, every word of the dictionary is assigned a weight to each topic (<cite id="7adfb"><a href="#zotero%7C20217732%2FNGJ3HCW2">(Blei, Ng, and Jordan 2003)</a></cite>, p. 996). The Mallet wrapper used in this pipeline, originally from the Gensim library, saves the first 1000 words per topic by default. Evaluating the results of this corpus, only a maximum of 500 words have a value above 0. This is due to rounding inside the code. Many research papers interpret the topics based on the first 5-30 words of the topic-word-list. (<cite id="iwrpi"><a href="#zotero%7C20217732%2FF8E46RVN">(Du 2024)</a></cite>, p. 57-59; <cite id="n0l1r"><a href="#zotero%7C20217732%2FZIGUYY9P">(Newman et al. 2010)</a></cite>; <cite id="djmc3"><a href="#zotero%7C20217732%2F699XM8FV">(Mimno et al. 2011)</a></cite>; <cite id="choa7"><a href="#zotero%7C20217732%2FJVIR76WE">(Lau, Newman, and Baldwin 2014)</a></cite>; <cite id="y5h5c"><a href="#zotero%7C20217732%2FK9PXZS6X">(Aletras and Stevenson 2013)</a></cite>; <cite id="v2cgv"><a href="#zotero%7C20217732%2FM2QTZUFP">(Xing, Paul, and Carenini 2019)</a></cite>). My own research has shown that an interpretation based on the first 30 to 100 words, depending on the topic, is useful for a differentiated interpretation. (<cite id="dakas"><a href="#zotero%7C20217732%2FHGJPHBR2">(Bayerschmidt and Möbus 2025)</a></cite>) To keep maximum transparency and scalability, the default option of 1000 words is retained. Since life history interviews contain sensitive information, only the first 50 words of the topics are visible in the file published with this record, due to anonymization.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-ohtm-file-words-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -299,7 +299,7 @@ display(Image("./media/ohtm_file_words.png"))
 The topic distribution of the individual chunks is saved under “weight”. The structure of this entry follows the structure of “corpus”, so that the keys set for the archives and interviews are identical. In this way, the appropriate entries in “weights” can be clearly assigned to the individual interviews in “corpus”.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-ohtm-file-weights-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -336,7 +336,7 @@ print(ohtm_file["stopwords"][:50])
 During preprocessing and processing, many different settings are selected that describe the model in its entirety. These settings must be recorded and visible for transparency so that different models can be distinguished and analysed. This also ensures that when enriching further interviews with this model, the identical preprocessing steps can be carried out, as the settings can be read directly from the OHTM file. These settings are saved in “settings”.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-othm-file_settings-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -381,7 +381,7 @@ Before the transcripts can be imported into the pipeline and processed, they sti
 This is an example of an Interview transcript from Archive Zwangsarbeit. (<cite id="zkgof"><a href="#zotero%7C20217732%2FW3YEPUTB">(za253 2005)</a></cite>, p. 3) When I started my research, some interviews were only available in PDF format, available.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-za253-transcript-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -434,13 +434,13 @@ print(text_11)
 
 <!-- #region editable=true slideshow={"slide_type": ""} -->
 This restructuring is very time-consuming, especially with different archives or layouts. Thanks to OHD's infrastructure, it is possible to obtain most interview transcripts directly from OHD in a standardized data structure. The transcripts in CSV or ODT format were made available to me by individual archives on request. The files are structured in such a way that the first column contains the tape number for older interviews, the second column the time codes, the third column the speaker abbreviation and the fourth column the sentences of the transcript. The files are the time-aligned transcripts that are used as subtitles. These files can be fed directly into the pipeline without prior restructuring.
+<!-- #endregion -->
 
-
+<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-2"] -->
 | Format | ADG | ZWA | HAI |WdE | CDG |MFL | FVV |
 |----------|----------|----------|----------|----------|----------|----------|----------|
 | CSV   | 674   | 0   | 0   | 22   | 23   | 0   | 0   |
 | TXT   | 7   | 180   | 45   | 16   | 0   | 14   | 10   |
-
 <!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} -->
@@ -859,34 +859,34 @@ The division of very long texts into smaller sections, so-called chunks, has the
 It is evident that the type of chunking and the time at which the texts are chunked have a significant influence on the final chunk length. To better understand the influence, it is necessary to examine the actual length of the sentences that were created as individual "raw" entries within the OHTM file. It is apparent that there is a considerable variation in the lengths. In this graph, all sentences over 100 words have been removed.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-raw-sentence-*"]
 cut = True
 
 from IPython.display import Image, display
 if cut:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
     display(Image("./media/fig_raw_length_cut.png"))
 else:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
-        display(Image("./media/fig_raw_length.png"))
+    display(Image("./media/fig_raw_length.png"))
     
 ```
 
@@ -896,35 +896,35 @@ metadata = {
 A similar variance can be seen in the individual sentences after preprocessing, which were saved in “cleaned”. It should be noted here that the sentences have different numbers of stop words that were previously removed. In the final model 0.46% (8243 of 1,793,325) of the cleaned sentences have more than 20 words and have been removed from the graph.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-cleaned-sentence-*"]
 # Change cut = "False" to see the uncut raw sentence length 
 cut = True
 
 from IPython.display import Image, display
 if cut:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
     display(Image("./media/fig_cleaned_length_cut.png"))
 else:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
-        display(Image("./media/fig_cleaned_length.png"))
+    display(Image("./media/fig_cleaned_length.png"))
 ```
 
 <!-- #region citation-manager={"citations": {"11eu5": [{"id": "20217732/CQ6D4YB5", "source": "zotero"}]}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -933,35 +933,35 @@ metadata = {
 The formation of individual chunks according to the number of sentences results in a range of 20 to 300 words, with an average of 25 sentences per chunk. In previous research, it was demonstrated that 25 sentences constituted an optimal number for the subdivision of interviews. (<cite id="11eu5"><a href="#zotero%7C20217732%2FCQ6D4YB5">(Hodel, Möbus, and Serif 2022b)</a></cite>, p. 198) However, this chunking was carried out using the "raw" sentences, i.e. the sentences prior to preprocessing. In order to ensure an ideal calculation of the topic model, it is recommended that the chunks be of similar length. Chunking based on sentences means that the chunks consist of different numbers of tokens. This phenomenon is clearly illustrated in the following graphic, in which chunks containing 25 sentences each were formed. In the final model 0.68% (492 of 72,243) of the chunks consist of more than 300 words and were removed from the graphic (cut = “True”).
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-chunk-*"]
 # Change cut = "False" to see the uncut raw sentence length 
 cut = True
 
 from IPython.display import Image, display
 if cut:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
     display(Image("./media/fig_chunk_by_sentence_length_cut.png"))
 else:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
-        display(Image("./media/fig_chunk_by_sentence_length.png"))
+    display(Image("./media/fig_chunk_by_sentence_length.png"))
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1011,35 +1011,35 @@ def chunking(ohtm_file, chunk_setting: int = 0):
 It is possible to achieve an equal distribution of words per chunk, as well as an equal size for all the chunks, through the process of chunking. A mere 0.22% (103 of 47,255) of the chunks have more than 120 words and are therefore above the threshold set in the function. This has been removed from the graph (cut = “True”). The 4.15% (2771 of 47,255) of the chunks that have fewer than the set number of words are a result of the ends of the transcripts. The statistical calculation of co-occurring words and the topic-document distribution of topic modeling results can be calculated with this approach on equally sized chunks or documents. 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-chunk-100-*"]
 # Change cut = "False" to see the uncut raw sentence length 
 cut = True
 
 from IPython.display import Image, display
 if cut:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
     display(Image("./media/fig_chunks_by_words_length_cut.png"))
 else:
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
+    metadata = {
+        "jdh": {
+            "module": "object",
+            "object": {
+                "type": "image",
+                "source": [ "LABEL TO ADD"
+                ]
+            }
         }
     }
-}
-        display(Image("./media/fig_chunks_by_words_length.png"))
+    display(Image("./media/fig_chunks_by_words_length.png"))
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1062,9 +1062,9 @@ In his study (chunk lengths ranging from 10 to 1700 words in 23 subdivisions), K
 
 A topic model may be calculated within the processing of new documents, or alternatively, an already calculated topic model may be used to enrich the content of new documents (an approach known as "inferring"). As previously indicated in the chapter on topic modeling, there are some significant parameters that must be preset in advance before commencing topic modelling.
 For the final model, we used a qualitative approach, as described in the chapter on topic modeling, to determine the various parameters and, above all, the final number of topics. (<cite id="espj4"><a href="#zotero%7C20217732%2FHGJPHBR2">(Bayerschmidt and Möbus 2025)</a></cite>) My final model has the following specifications:
+<!-- #endregion -->
 
-
-
+<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-3"] -->
 | Setting | Value | 
 |----------|----------:|
 | Topics   | 100   | 
@@ -1076,7 +1076,6 @@ For the final model, we used a qualitative approach, as described in the chapter
 | lemmatized   | yes   | 
 | allowed_postags   |  'NOUN', 'PROPN', 'VERB', 'ADJ', 'NUM', 'ADV'   | 
 | chunking  | 100 Words per Chunks   | 
-
 <!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1385,7 +1384,7 @@ A detailed analysis and evaluation of the inference would go beyond the scope of
 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
+```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-inferring-*"]
 from IPython.display import Image, display
 metadata = {
     "jdh": {
@@ -1561,7 +1560,7 @@ The corpus heatmap provides an overview of the distribution of the individual to
 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-heatmap-corpus-ohtm-*"]
 archive = "all" #you can filter the heatmap to show single archives just replace "all" with the archive abbreviation "zwa", "adg" etc. 
 z_score = True
 
@@ -1649,7 +1648,9 @@ print_chunk(ohtm_file, interview_id = "wde0460", chunk_number = 33)
 <!-- #region citation-manager={"citations": {"au326": [{"id": "20217732/48CHG28V", "source": "zotero"}], "fzvl3": [{"id": "20217732/48CHG28V", "source": "zotero"}], "n6u13": [{"id": "20217732/48CHG28V", "source": "zotero"}]}} editable=true slideshow={"slide_type": ""} -->
 Chunk 33 of interview WDE0460 (<cite id="fzvl3"><a href="#zotero%7C20217732%2F48CHG28V">(Jäschke and Jäschke 1993)</a></cite>, Timecode: Tape 2 - 00:11:09.13 – 00:14:02.01) provides another interesting insight, as the interviewee explains that although she has received a German passport, she still sees herself as Polish and not as German. For her, the passport is something purely formal and practical that allows her to move around Europe. At the beginning, she talks about the problems she had with traveling before the German passport, as she was repeatedly stopped at border controls. She also expresses surprise in her comment on the GDR border guard's question that she had the wrong passport, because Poland is there and yet she is apparently listed as a homeless foreigner. After her statement that she sees herself as Polish, she remarks that “maybe that sounds bad” (<cite id="n6u13"><a href="#zotero%7C20217732%2F48CHG28V">(Jäschke and Jäschke 1993)</a></cite>, Timecode: Tape 2 - 0:13:29) as a defensive statement. She quotes from her daughter, almost as a counterexample to her self-image, that although she speaks Polish, she would not describe herself as Polish: “‘No, I'm not Polish, but I speak Polish’”. (<cite id="au326"><a href="#zotero%7C20217732%2F48CHG28V">(Jäschke and Jäschke 1993)</a></cite>, Timecode: Tape 2 – 0:13:51) She then adds that, according to the teachers, her children also speak perfectly German.
 We can also recognize the different topics of this chunk in the topic distribution of the other topics. These are the first four most important topics of the chunk:
+<!-- #endregion -->
 
+<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-4"] -->
 | Topic | Weight | First 20 -25 Words | 
 |:----------|----------|----------:|
 | 44   | 0.5292381995922083   | deutsch (German), polen (Poland), deutschland (Germany), polnisch (Polish), sprache (language), russisch (Russian), pole (Pole [Polish person]), <br> lernen (to learn), land (country), deutsche (German [person]), familie (family), russland (Russia), friedland (Friedland), türkei (Turkey), <br> stadt (city), russe (Russian [person]), heimat (homeland), ausländer (foreigner), türkisch (Turkish), grenze (border)<br>|
@@ -1657,8 +1658,10 @@ We can also recognize the different topics of this chunk in the topic distributi
 | 63   | 0.09044079354817278   |kind (child), tochter (daughter), heiraten (to marry), sohn (son), gebären (to give birth), verheiraten (to marry off), familie (family), mädchen (girl),  <br>zweiter (second), wohnen (to live), schön (beautiful / nice), mutter (mother), wohnung (apartment), haus (house), enkel (grandchild / grandson), <br> kennen (to know [someone]), sterben (to die), eltern (parents), spät (late), lernen (to learn)<br>|
 | 89   | 0.09029367764025828   | papier (paper), schicken (to send), tag (day), unterschreiben (to sign), melden (to report / to register), post (mail / post),  <br> wussen (to know – likely meant wissen), telefon (telephone), adresse (address), spät (late), antrag (application / request), anrufen (to call), ausweis (ID card), <br> unterlage (document / record), polizei (police), dokument (document), rot (red), liste (list), zeigen (to show), entlassen (to release / to dismiss), rufen (to call / to shout),<br> pass (passport), warten (to wait), nummer (number), büro (office)|
 
-In addition to Topic 44, which led us to this chunk, Topic 50 describes the topic of work and challenges, with the words “problem (problem)”, “schwer (difficult)”, “versuchen (to try)”, “schaffen (to manage)” and “schlecht (bad)”. Topic 63 is about family and Topic 89 describes various forms of bureaucracy. All of these topics can be found in the text of the chunk. What is interesting is that we have the greatest weighting with topic 44 and the other three topics are more or less equally distributed. 
+<!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": ""} -->
+In addition to Topic 44, which led us to this chunk, Topic 50 describes the topic of work and challenges, with the words “problem (problem)”, “schwer (difficult)”, “versuchen (to try)”, “schaffen (to manage)” and “schlecht (bad)”. Topic 63 is about family and Topic 89 describes various forms of bureaucracy. All of these topics can be found in the text of the chunk. What is interesting is that we have the greatest weighting with topic 44 and the other three topics are more or less equally distributed. 
 <!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1766,7 +1769,7 @@ Here we see the chronological heatmap of interview MFL20006. At first glance, it
 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""}
+```python editable=true slideshow={"slide_type": ""} tags=["figure-interview-heatmap-*"]
 output_folder: str = (r"./media")
 load_file_name = "jdh_ohtm_pipeline_final_version"
 ohtm_file = load_json_function(load_file_name, output_folder)
