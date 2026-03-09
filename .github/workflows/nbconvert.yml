@@ -41,7 +41,11 @@ jobs:
       - name: installing nbconvert & other required libraries
         run: |
           pip install -r requirements.txt
-          python -m pip install jupyter nbconvert nbformat notebook 
+          python -m pip install jupyter nbconvert nbformat notebook
+      - name: Show installed packages
+        run: pip freeze
+      - name: Force reinstall correct matplotlib version
+        run: pip install matplotlib==3.5.1 --force-reinstall --no-cache-dir
       - name: running nbconvert
         run: |
           jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.timeout=-1 $FIRST_IPYNB_FILE
