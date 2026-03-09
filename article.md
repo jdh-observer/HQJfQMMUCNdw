@@ -1,6 +1,7 @@
 ---
 jupyter:
   jupytext:
+    formats: ipynb,md
     text_representation:
       extension: .md
       format_name: markdown
@@ -196,6 +197,16 @@ The following schematic shows the entire structure of the OHTM-file and visualiz
 
 ```python editable=true jdh={"module": "object", "object": {"source": ["table 1: label table 1"]}} slideshow={"slide_type": ""} tags=["hermeneutics"]
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/ohtm_file data structure.png"))
 ```
 
@@ -248,6 +259,16 @@ Furthermore, time codes are saved, along with the information regarding the chun
 ```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
 # Bild-Datei noch nicht hochgeladen
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/ohtm_file_corpus.png"))
 ```
 
@@ -259,6 +280,16 @@ The topic word distribution of the individual topics is saved under “words”.
 
 ```python editable=true slideshow={"slide_type": ""}
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/ohtm_file_words.png"))
 ```
 
@@ -270,6 +301,16 @@ The topic distribution of the individual chunks is saved under “weight”. The
 
 ```python editable=true slideshow={"slide_type": ""}
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/ohtm_file_weights.png"))
 ```
 
@@ -297,6 +338,16 @@ During preprocessing and processing, many different settings are selected that d
 
 ```python editable=true slideshow={"slide_type": ""}
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/ohtm_file_settings.png"))
 ```
 
@@ -332,6 +383,16 @@ This is an example of an Interview transcript from Archive Zwangsarbeit. (<cite 
 
 ```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/transcripts/za253_transcript_ger.png"))
 ```
 
@@ -803,8 +864,28 @@ cut = True
 
 from IPython.display import Image, display
 if cut:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
     display(Image("./media/fig_raw_length_cut.png"))
 else:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
         display(Image("./media/fig_raw_length.png"))
     
 ```
@@ -821,8 +902,28 @@ cut = True
 
 from IPython.display import Image, display
 if cut:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
     display(Image("./media/fig_cleaned_length_cut.png"))
 else:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
         display(Image("./media/fig_cleaned_length.png"))
 ```
 
@@ -838,8 +939,28 @@ cut = True
 
 from IPython.display import Image, display
 if cut:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
     display(Image("./media/fig_chunk_by_sentence_length_cut.png"))
 else:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
         display(Image("./media/fig_chunk_by_sentence_length.png"))
 ```
 
@@ -896,8 +1017,28 @@ cut = True
 
 from IPython.display import Image, display
 if cut:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
     display(Image("./media/fig_chunks_by_words_length_cut.png"))
 else:
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
         display(Image("./media/fig_chunks_by_words_length.png"))
 ```
 
@@ -1246,6 +1387,16 @@ A detailed analysis and evaluation of the inference would go beyond the scope of
 
 ```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics"]
 from IPython.display import Image, display
+metadata = {
+    "jdh": {
+        "module": "object",
+        "object": {
+            "type": "image",
+            "source": [ "LABEL TO ADD"
+            ]
+        }
+    }
+}
 display(Image("./media/inferring.png"))
 
 ```
