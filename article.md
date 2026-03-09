@@ -14,8 +14,8 @@ jupyter:
 ---
 
 ```python
-!pip install -r ohtm_pipeline/requirements.txt
-!pip install -r requirements.txt
+#!pip install -r ohtm_pipeline/requirements.txt
+#!pip install -r requirements.txt
 !pip install -e ohtm_pipeline
 ```
 
