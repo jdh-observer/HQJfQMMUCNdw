@@ -194,22 +194,12 @@ The data structure combines interview transcripts, information, and references i
 The following schematic shows the entire structure of the OHTM-file and visualizes the different levels, references, and entries, which are called keys in the following, as it is a dictionary. The keys are divided into two categories: there are fixed keys that are predefined and are created during the import, “key”, and there are variable keys that depend on the file names of the interviews and the names of the archives, \<key\>.
 <!-- #endregion -->
 
-```python editable=true jdh={"module": "object", "object": {"source": ["table 1: label table 1"]}} slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-strcture-*"]
+```python editable=true jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-strcture-*"]
 from IPython.display import Image, display
-metadata = {
-    "jdh": {
-        "module": "object",
-        "object": {
-            "type": "image",
-            "source": [ "LABEL TO ADD"
-            ]
-        }
-    }
-}
 display(Image("./media/ohtm_file data structure.png"))
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-1"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 By creating individual keys that are dependent on the archive name and the interview_id/interview name, similar structures and dependencies can be used in the different entries to relate the results to each other between the entries. 
 <!-- #endregion -->
 
@@ -269,7 +259,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/ohtm_file_corpus.png"))
+display(Image("./media/ohtm_file_corpus.png"), metadata=metadata)
 ```
 
 <!-- #region citation-manager={"citations": {"7adfb": [{"id": "20217732/NGJ3HCW2", "source": "zotero"}], "choa7": [{"id": "20217732/JVIR76WE", "source": "zotero"}], "dakas": [{"id": "20217732/HGJPHBR2", "source": "zotero"}], "djmc3": [{"id": "20217732/699XM8FV", "source": "zotero"}], "iwrpi": [{"id": "20217732/F8E46RVN", "source": "zotero"}], "n0l1r": [{"id": "20217732/ZIGUYY9P", "source": "zotero"}], "v2cgv": [{"id": "20217732/M2QTZUFP", "source": "zotero"}], "y5h5c": [{"id": "20217732/K9PXZS6X", "source": "zotero"}]}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -290,7 +280,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/ohtm_file_words.png"))
+display(Image("./media/ohtm_file_words.png"), metadata=metadata)
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -311,7 +301,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/ohtm_file_weights.png"))
+display(Image("./media/ohtm_file_weights.png"), metadata=metadata)
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -348,7 +338,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/ohtm_file_settings.png"))
+display(Image("./media/ohtm_file_settings.png"), metadata=metadata)
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -393,7 +383,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/transcripts/za253_transcript_ger.png"))
+display(Image("./media/transcripts/za253_transcript_ger.png"), metadata=metadata)
 ```
 
 <!-- #region citation-manager={"citations": {"pg0cn": [{"id": "20217732/W3YEPUTB", "source": "zotero"}]}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -874,7 +864,7 @@ if cut:
             }
         }
     }
-    display(Image("./media/fig_raw_length_cut.png"))
+    display(Image("./media/fig_raw_length_cut.png"), metadata=metadata)
 else:
     metadata = {
         "jdh": {
@@ -886,7 +876,7 @@ else:
             }
         }
     }
-    display(Image("./media/fig_raw_length.png"))
+    display(Image("./media/fig_raw_length.png"), metadata=metadata)
     
 ```
 
@@ -912,7 +902,7 @@ if cut:
             }
         }
     }
-    display(Image("./media/fig_cleaned_length_cut.png"))
+    display(Image("./media/fig_cleaned_length_cut.png"),metadata=metadata)
 else:
     metadata = {
         "jdh": {
@@ -924,7 +914,7 @@ else:
             }
         }
     }
-    display(Image("./media/fig_cleaned_length.png"))
+    display(Image("./media/fig_cleaned_length.png"), metadata=metadata)
 ```
 
 <!-- #region citation-manager={"citations": {"11eu5": [{"id": "20217732/CQ6D4YB5", "source": "zotero"}]}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -949,7 +939,7 @@ if cut:
             }
         }
     }
-    display(Image("./media/fig_chunk_by_sentence_length_cut.png"))
+    display(Image("./media/fig_chunk_by_sentence_length_cut.png"), metadata=metadata)
 else:
     metadata = {
         "jdh": {
@@ -961,7 +951,7 @@ else:
             }
         }
     }
-    display(Image("./media/fig_chunk_by_sentence_length.png"))
+    display(Image("./media/fig_chunk_by_sentence_length.png"), metadata=metadata)
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1027,7 +1017,7 @@ if cut:
             }
         }
     }
-    display(Image("./media/fig_chunks_by_words_length_cut.png"))
+    display(Image("./media/fig_chunks_by_words_length_cut.png"), metadata=metadata)
 else:
     metadata = {
         "jdh": {
@@ -1039,7 +1029,7 @@ else:
             }
         }
     }
-    display(Image("./media/fig_chunks_by_words_length.png"))
+    display(Image("./media/fig_chunks_by_words_length.png"), metadata=metadata)
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -1396,7 +1386,7 @@ metadata = {
         }
     }
 }
-display(Image("./media/inferring.png"))
+display(Image("./media/inferring.png"), metadata=metadata)
 
 ```
 
