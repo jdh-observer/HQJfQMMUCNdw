@@ -254,7 +254,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "File structure of the "corpus" level"
+            "source": [ "File structure of the 'corpus' level"
             ]
         }
     }
@@ -275,7 +275,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "File structure of the "words" level"
+            "source": [ "File structure of the 'words' level"
             ]
         }
     }
@@ -296,7 +296,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "File structure of the "weight" level"
+            "source": [ "File structure of the 'weight' level"
             ]
         }
     }
@@ -333,7 +333,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "File structure of the "settings" level"
+            "source": [ "File structure of the 'settings' level"
             ]
         }
     }
