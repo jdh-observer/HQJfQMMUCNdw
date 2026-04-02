@@ -38,17 +38,17 @@ import pickle
 Institution
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["copyright", "hidden"]
+<!-- #region tags=["copyright"] -->
 [![cc-by](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) 
 ©<AUTHOR or ORGANIZATION / FUNDER>. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC-BY](https://creativecommons.org/licenses/by/4.0/)
 
-```
+<!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["copyright"]
+<!-- #region tags=["copyright"] -->
 [![cc-by-nc-nd](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/) 
 ©<AUTHOR or ORGANIZATION / FUNDER>. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC-BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-```
+<!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["abstract"] -->
 This is an abstract (...)
