@@ -194,7 +194,7 @@ The data structure combines interview transcripts, information, and references i
 The following schematic shows the entire structure of the OHTM-file and visualizes the different levels, references, and entries, which are called keys in the following, as it is a dictionary. The keys are divided into two categories: there are fixed keys that are predefined and are created during the import, “key”, and there are variable keys that depend on the file names of the interviews and the names of the archives, \<key\>.
 <!-- #endregion -->
 
-```python editable=true jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-strcture-*"]
+```python editable=true jdh={"module": "object", "object": {"source": ["Schematic structure of the OHTM file's data structure"]}} slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-strcture-*"]
 from IPython.display import Image, display
 display(Image("./media/ohtm_file data structure.png"))
 ```
@@ -229,7 +229,7 @@ for sents in ohtm_file["corpus"][archive][interview_id]["sent"]:
 All imported interview transcripts are stored at the “corpus” level, divided according to the archives. The lowest level is formed by individual sentences, which are saved with relevant information and metadata. My research corpus consists of 991 interviews from seven different archives: the archive “Deutsches Gedächtnis” of the Institut für Geschichte und Biographie der FernUniversität in Hagen (ADG), the archive “Forced Labor 1939-1945” (ZWA) and "Colonia Dignidad. Ein chilenisch-deutsches Oral History-Archiv” (CDG) of the Freie Universität Berlin, the interview collection of the “Werkstatt der Erinnerung of the Forschungsstelle für Zeitgeschichte in Hamburg” (WdE), the contemporary witness archive of the “Dokumentationszentrum Flucht, Vertreibung, Versöhnung” (FVV), the collection ”Erzählte Lebensgeschichte" of the Museum Friedland (MFL) and a collection of the Hannah-Arendt Institut on education in the GDR. (HAI) The English-language interviews, where no translation was available, could not be included in the corpus due to the way topic modeling works, so only the German-language interviews and transcripts are used here. The only selection criterion was the availability and accessibility of the transcripts in CSV/ODT or TXT format.
 <!-- #endregion -->
 
-<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-1"] -->
+<!-- #region jdh={"module": "object", "object": {"source": ["Corpus archives, including the number of interviews"]}} tags=["table-1"] -->
 | Archive | Interview |
 |----------|----------|
 | ADG   | 681   |
@@ -247,14 +247,14 @@ Furthermore, time codes are saved, along with the information regarding the chun
 <!-- #endregion -->
 
 ```python editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "figure-ohtm-file-corpus-*"]
-# Bild-Datei noch nicht hochgeladen
+
 from IPython.display import Image, display
 metadata = {
     "jdh": {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "File structure of the 'corpus' level"
             ]
         }
     }
@@ -275,7 +275,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "File structure of the 'words' level"
             ]
         }
     }
@@ -296,7 +296,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "File structure of the 'weight' level"
             ]
         }
     }
@@ -333,7 +333,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "File structure of the 'settings' level"
             ]
         }
     }
@@ -378,7 +378,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "Transcript excerpt from the interview za253, p. 3"
             ]
         }
     }
@@ -859,7 +859,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each "raw" sentence in the corpus, cut above 100 words"
                 ]
             }
         }
@@ -871,7 +871,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each "raw" sentence in the corpus"
                 ]
             }
         }
@@ -897,7 +897,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each "cleaned" sentence in the corpus, cut above 20 words"
                 ]
             }
         }
@@ -909,7 +909,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each "cleaned" sentence in the corpus"
                 ]
             }
         }
@@ -934,7 +934,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each chunk by adding 25 sentences, cut above 300 words"
                 ]
             }
         }
@@ -946,7 +946,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each chunk by adding 25 sentences"
                 ]
             }
         }
@@ -1012,7 +1012,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each chunk by adding 100 words, cut above 120 words"
                 ]
             }
         }
@@ -1024,7 +1024,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "LABEL TO ADD"
+                "source": [ "Length of each chunk by adding 100 words"
                 ]
             }
         }
@@ -1054,7 +1054,7 @@ A topic model may be calculated within the processing of new documents, or alter
 For the final model, we used a qualitative approach, as described in the chapter on topic modeling, to determine the various parameters and, above all, the final number of topics. (<cite id="espj4"><a href="#zotero%7C20217732%2FHGJPHBR2">(Bayerschmidt and Möbus 2025)</a></cite>) My final model has the following specifications:
 <!-- #endregion -->
 
-<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-3"] -->
+<!-- #region jdh={"module": "object", "object": {"source": ["Settings and Specifications of the used topic model"]}} tags=["table-3"] -->
 | Setting | Value | 
 |----------|----------:|
 | Topics   | 100   | 
@@ -1381,7 +1381,7 @@ metadata = {
         "module": "object",
         "object": {
             "type": "image",
-            "source": [ "LABEL TO ADD"
+            "source": [ "Procentual weightchange of topics after inferring"
             ]
         }
     }
@@ -1640,7 +1640,7 @@ Chunk 33 of interview WDE0460 (<cite id="fzvl3"><a href="#zotero%7C20217732%2F48
 We can also recognize the different topics of this chunk in the topic distribution of the other topics. These are the first four most important topics of the chunk:
 <!-- #endregion -->
 
-<!-- #region jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-4"] -->
+<!-- #region jdh={"module": "object", "object": {"source": ["First 25 words of the top four topics of chunk 33 interview WDE0460 "]}} tags=["table-4"] -->
 | Topic | Weight | First 20 -25 Words | 
 |:----------|----------|----------:|
 | 44   | 0.5292381995922083   | deutsch (German), polen (Poland), deutschland (Germany), polnisch (Polish), sprache (language), russisch (Russian), pole (Pole [Polish person]), <br> lernen (to learn), land (country), deutsche (German [person]), familie (family), russland (Russia), friedland (Friedland), türkei (Turkey), <br> stadt (city), russe (Russian [person]), heimat (homeland), ausländer (foreigner), türkisch (Turkish), grenze (border)<br>|
