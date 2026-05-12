@@ -5,9 +5,8 @@ from ohtm_pipeline.ohtm_pipeline.mallet_wrapper.ldamallet import LdaMallet
 import json
 import os
 from ohtm_pipeline.ohtm_pipeline.basic_functions.convert_ohtm_file import convert_ohtm_file
-from ohtm_pipeline.ohtm_pipeline import mallet_wrapper
+from ohtm_pipeline.ohtm_pipeline import mallet_wrapper as mw
 import sys
-import ohtm_pipeline.mallet_wrapper as mw
 
 # Alias setzen
 sys.modules['mallet_wrapper'] = mw
