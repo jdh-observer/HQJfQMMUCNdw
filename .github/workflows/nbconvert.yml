@@ -11,10 +11,15 @@ jobs:
         with:
           lfs: true
 
-      - name: fetch git lfs objects
+      - name: fetch large files from original repo if needed
         shell: bash
         run: |
-          git lfs pull
+          # Check if .ohtm files are LFS pointers (not real JSON)
+          if find media -name "*.ohtm" -exec grep -l "git-lfs" {} \; 2>/dev/null; then
+            echo "LFS pointers detected, downloading from original repo..."
+            # Download .ohtm files from original repository
+            wget -q https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline/raw/main/media/jdh_ohtm_pipeline_final_version.ohtm -O media/jdh_ohtm_pipeline_final_version.ohtm || true
+          fi
 
       - name: deleting nbconvert branch if exists
         shell: bash
