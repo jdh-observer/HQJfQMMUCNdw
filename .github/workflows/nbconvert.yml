@@ -21,8 +21,10 @@ jobs:
           sudo apt-get install -y git-lfs
           git lfs install
 
-          git clone --depth 1 https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git /tmp/ohtm-upstream
-          git -C /tmp/ohtm-upstream lfs pull --include="$TARGET_FILE"
+          git clone https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git /tmp/ohtm-upstream
+          cd /tmp/ohtm-upstream
+          git lfs pull
+          cd -
           cp /tmp/ohtm-upstream/$TARGET_FILE $TARGET_FILE
 
           # Fail fast if replacement did not succeed.
