@@ -15,23 +15,33 @@ jobs:
         shell: bash
         run: |
           TARGET_FILE="media/jdh_ohtm_pipeline_final_version.ohtm"
+          LFS_OID="7324463351d88933d26c7a3cef49a83f30a0eb2243fc06801bffbff550e74c7b"
+          LFS_SIZE="364805792"
+          LFS_API="https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git/info/lfs/objects/batch"
 
-          # Always refresh the large data file from upstream where the LFS object exists.
-          sudo apt-get update
-          sudo apt-get install -y git-lfs
-          git lfs install
+          echo "Requesting LFS download URL from upstream..."
+          RESPONSE=$(curl -s -X POST \
+            -H "Accept: application/vnd.git-lfs+json" \
+            -H "Content-Type: application/vnd.git-lfs+json" \
+            "$LFS_API" \
+            -d "{\"operation\":\"download\",\"transfers\":[\"basic\"],\"objects\":[{\"oid\":\"$LFS_OID\",\"size\":$LFS_SIZE}]}")
 
-          git clone https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git /tmp/ohtm-upstream
-          cd /tmp/ohtm-upstream
-          git lfs pull
-          cd -
-          cp /tmp/ohtm-upstream/$TARGET_FILE $TARGET_FILE
+          echo "LFS API response: $RESPONSE"
+
+          DOWNLOAD_URL=$(echo "$RESPONSE" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+print(data['objects'][0]['actions']['download']['href'])
+")
+          echo "Downloading from: $DOWNLOAD_URL"
+          curl -L -o "$TARGET_FILE" "$DOWNLOAD_URL"
 
           # Fail fast if replacement did not succeed.
           if head -n 1 "$TARGET_FILE" | grep -q "version https://git-lfs.github.com/spec/v1"; then
-            echo "ERROR: $TARGET_FILE is still an LFS pointer after upstream fetch."
+            echo "ERROR: $TARGET_FILE is still an LFS pointer after download."
             exit 1
           fi
+          echo "Successfully fetched real .ohtm file ($(wc -c < $TARGET_FILE) bytes)"
 
       - name: deleting nbconvert branch if exists
         shell: bash
