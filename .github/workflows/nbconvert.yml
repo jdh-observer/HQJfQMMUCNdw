@@ -28,11 +28,7 @@ jobs:
 
           echo "LFS API response: $RESPONSE"
 
-          DOWNLOAD_URL=$(echo "$RESPONSE" | python3 -c "
-import sys, json
-data = json.load(sys.stdin)
-print(data['objects'][0]['actions']['download']['href'])
-")
+          DOWNLOAD_URL=$(echo "$RESPONSE" | python3 -c 'import sys,json; data=json.load(sys.stdin); print(data["objects"][0]["actions"]["download"]["href"])')
           echo "Downloading from: $DOWNLOAD_URL"
           curl -L -o "$TARGET_FILE" "$DOWNLOAD_URL"
 
