@@ -859,7 +859,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "raw" sentence in the corpus, cut above 100 words"
+                "source": [ 'Length of each "raw" sentence in the corpus, cut above 100 words'
                 ]
             }
         }
@@ -871,7 +871,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "raw" sentence in the corpus"
+                "source": [ 'Length of each "raw" sentence in the corpus'
                 ]
             }
         }
@@ -897,7 +897,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "cleaned" sentence in the corpus, cut above 20 words"
+                "source": [ 'Length of each "cleaned" sentence in the corpus, cut above 20 words'
                 ]
             }
         }
@@ -909,7 +909,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "cleaned" sentence in the corpus"
+                "source": [ 'Length of each "cleaned" sentence in the corpus'
                 ]
             }
         }
@@ -934,7 +934,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each chunk by adding 25 sentences, cut above 300 words"
+                "source": [ 'Length of each chunk by adding 25 sentences, cut above 300 words'
                 ]
             }
         }
@@ -946,7 +946,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each chunk by adding 25 sentences"
+                "source": [ 'Length of each chunk by adding 25 sentences'
                 ]
             }
         }
