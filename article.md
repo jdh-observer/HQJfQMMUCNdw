@@ -1479,7 +1479,7 @@ Now that we know which topics our model has and which topics are relevant to the
 The bar chart provides a comprehensive overview of the topic distribution across the entire corpus, as well as an analysis of the distribution within the individual archives. The legend can be used to select or deselect individual archives and thus display the topic distribution in individual archives. A more detailed examination of the distribution of the individual archives reveals that Topic 4 is the most prominent within the Werkstatt der Erinnerung archive. The preceding assumption appears to be valid: Topic 4 pertains to the subjects of the interviews in the "Italiener in Hamburg" collection of the Werkstatt der Erinnerung. However, there are also hits in the ADG archive. Topic 85 is strongest within the ADG archive but can also be found in the ZWA archive. The subject of Topic 44 is distributed across the MFL, ADG and ZWA archives, and, to a lesser extent, in WdE. In accordance with the assumption previously outlined, it is evident that this subject is by far the most dominant topic in the MFL archive. However, the overall distribution indicates that the topic is also present in other archives.
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["hidden"]
+```python editable=true slideshow={"slide_type": ""} tags=["figure-bargraph-*"]
 output_folder: str = (r"./media")
 load_file_name = "jdh_ohtm_pipeline_final_version"
 ohtm_file = load_json_function(load_file_name, output_folder)
