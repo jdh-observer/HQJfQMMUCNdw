@@ -14,12 +14,21 @@ jobs:
       - name: fetch large files from original repo if needed
         shell: bash
         run: |
-          # Check if .ohtm files are LFS pointers (not real JSON)
-          if find media -name "*.ohtm" -exec grep -l "git-lfs" {} \; 2>/dev/null; then
-            echo "LFS pointers detected, cloning upstream repo to fetch real objects..."
-            git clone --depth 1 https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git /tmp/ohtm-upstream
-            git -C /tmp/ohtm-upstream lfs pull --include="media/jdh_ohtm_pipeline_final_version.ohtm"
-            cp /tmp/ohtm-upstream/media/jdh_ohtm_pipeline_final_version.ohtm media/jdh_ohtm_pipeline_final_version.ohtm
+          TARGET_FILE="media/jdh_ohtm_pipeline_final_version.ohtm"
+
+          # Always refresh the large data file from upstream where the LFS object exists.
+          sudo apt-get update
+          sudo apt-get install -y git-lfs
+          git lfs install
+
+          git clone --depth 1 https://github.com/bayerschphi/OHTM-a-oral-history-topic-modeling-pipeline.git /tmp/ohtm-upstream
+          git -C /tmp/ohtm-upstream lfs pull --include="$TARGET_FILE"
+          cp /tmp/ohtm-upstream/$TARGET_FILE $TARGET_FILE
+
+          # Fail fast if replacement did not succeed.
+          if head -n 1 "$TARGET_FILE" | grep -q "version https://git-lfs.github.com/spec/v1"; then
+            echo "ERROR: $TARGET_FILE is still an LFS pointer after upstream fetch."
+            exit 1
           fi
 
       - name: deleting nbconvert branch if exists
