@@ -1,5 +1,5 @@
-numpy==1.21.6
-matplotlib==3.5.1
+numpy
+matplotlib
 pandas
 plotly
 plotly-express
@@ -8,6 +8,7 @@ gensim
 scipy
 six
 smart_open
+odfpy
 
 
 

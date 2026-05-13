@@ -6,7 +6,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.19.1
+      jupytext_version: 1.19.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -14,8 +14,8 @@ jupyter:
 ---
 
 ```python
-!pip install -r ohtm_pipeline/requirements.txt
-!pip install -r requirements.txt
+#!pip install -r ohtm_pipeline/requirements.txt
+#!pip install -r requirements.txt
 !pip install -e ohtm_pipeline
 ```
 
@@ -38,17 +38,17 @@ import pickle
 Institution
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["copyright", "hidden"]
+<!-- #region tags=["copyright"] -->
 [![cc-by](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) 
 ©<AUTHOR or ORGANIZATION / FUNDER>. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC-BY](https://creativecommons.org/licenses/by/4.0/)
 
-```
+<!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["copyright"]
+<!-- #region tags=["copyright"] -->
 [![cc-by-nc-nd](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/) 
 ©<AUTHOR or ORGANIZATION / FUNDER>. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC-BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-```
+<!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["abstract"] -->
 This is an abstract (...)
@@ -859,7 +859,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "raw" sentence in the corpus, cut above 100 words"
+                "source": [ 'Length of each "raw" sentence in the corpus, cut above 100 words'
                 ]
             }
         }
@@ -871,7 +871,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "raw" sentence in the corpus"
+                "source": [ 'Length of each "raw" sentence in the corpus'
                 ]
             }
         }
@@ -897,7 +897,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "cleaned" sentence in the corpus, cut above 20 words"
+                "source": [ 'Length of each "cleaned" sentence in the corpus, cut above 20 words'
                 ]
             }
         }
@@ -909,7 +909,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each "cleaned" sentence in the corpus"
+                "source": [ 'Length of each "cleaned" sentence in the corpus'
                 ]
             }
         }
@@ -934,7 +934,7 @@ if cut:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each chunk by adding 25 sentences, cut above 300 words"
+                "source": [ 'Length of each chunk by adding 25 sentences, cut above 300 words'
                 ]
             }
         }
@@ -946,7 +946,7 @@ else:
             "module": "object",
             "object": {
                 "type": "image",
-                "source": [ "Length of each chunk by adding 25 sentences"
+                "source": [ 'Length of each chunk by adding 25 sentences'
                 ]
             }
         }

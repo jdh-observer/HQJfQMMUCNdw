@@ -12,7 +12,17 @@ def save_json_function(ohtm_file, working_folder: str = "", save_name: str = "")
 
 
 def load_json_function(load_file_name: str = "", working_folder: str = ""):
-    with open(os.path.join(working_folder, load_file_name + ".ohtm")) as f:
+    file_path = os.path.join(working_folder, load_file_name + ".ohtm")
+    with open(file_path, encoding="utf-8") as f:
+        raw = f.read()
+
+    if raw.startswith("version https://git-lfs.github.com/spec/v1"):
+        raise ValueError(
+            f"'{file_path}' is a Git LFS pointer, not JSON data. "
+            "Install Git LFS and fetch objects (e.g. 'git lfs pull') before loading this file."
+        )
+
+    with open(file_path, encoding="utf-8") as f:
         ohtm_file = json.load(f)
         ohtm_file = convert_ohtm_file(ohtm_file)
         print(f"The ohtm_file '{load_file_name}.ohtm' was loaded")
